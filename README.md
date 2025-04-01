@@ -31,7 +31,7 @@ Para rodar o script no Termux ou Linux, siga os seguintes passos:
 
 3. Execute o script:
 
-### python icmp_fragmenter.py
+### python Red-Valkiria.py
 
 
 
