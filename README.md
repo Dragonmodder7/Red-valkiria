@@ -55,3 +55,5 @@ Para rodar o script no Termux ou Linux, siga os seguintes passos:
 IP do site: 192.168.1.1  
 Porta do site: 80  
 Quantidade de packets: 100
+
+## O desenvolvedor não se responsabiliza por qualquer uso inadequado desta ferramenta.
